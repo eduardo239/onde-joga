@@ -1,17 +1,11 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
-  base: "/onde-joga/",
+  plugins: [react()],
+  base: "/", // ou seu path base se estiver fazendo deploy em subdiretório
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks: undefined,
-        preserveModules: false,
-      },
-    },
-    sourcemap: false,
+    outDir: "dist",
+    emptyOutDir: true,
   },
 });
