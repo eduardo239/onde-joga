@@ -36,6 +36,20 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: List dist contents
+        run: |
+          echo "Listing contents of dist folder:"
+          ls -laR ./dist
+          echo "Checking for symlinks:"
+          find ./dist -type l || echo "No symlinks found"
+          echo "Checking dist folder size:"
+          du -sh ./dist
+
+      - name: Remove symlinks if any
+        run: |
+          find ./dist -type l -delete
+          echo "Removed any symlinks from dist"
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
         with:
@@ -45,7 +59,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: github-pages
-          path: ./dist
+          path: |
+            ./dist
+            !./dist/**/*.map
+            !./dist/**/node_modules
+            !./dist/.*
+          retention-days: 1
 
       - name: Deploy to GitHub Pages
         id: deployment
