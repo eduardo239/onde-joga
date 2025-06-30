@@ -1,0 +1,15 @@
+@import "tailwindcss";
+
+.mobile-screen {
+  width: 350px;
+  height: 759px;
+}
+
+/* image */
+.logo {
+  height: 100px;
+}
+
+button:hover {
+  cursor: pointer;
+}
