@@ -1,8 +1,6 @@
-import React, { useState } from "react";
 import Container from "./Container";
 import Text from "./Text";
-import Input from "./Input";
-import Divider from "./Divider";
+
 import Button from "./Button";
 // imagens
 import LOGO_WHITE from "./assets/logo_light.svg";
@@ -12,9 +10,6 @@ import CircleImage from "./CircleImage";
 import Grid from "./Grid";
 
 export default function SelectTeamsPage() {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-
   return (
     <Container padding>
       <img className="logo rounded-md" src={LOGO_WHITE} alt="ondeJoga logo" />

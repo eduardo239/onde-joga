@@ -1,15 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Container from "./Container";
 import Text from "./Text";
 import Input from "./Input";
-import Divider from "./Divider";
 import Button from "./Button";
 // imagens
 import LOGO_WHITE from "./assets/logo_light.svg";
-import TEAM_A from "./assets/team-1.svg";
-import TEAM_B from "./assets/team-2.svg";
-import CircleImage from "./CircleImage";
-import Grid from "./Grid";
 
 export default function LoginPage() {
   const [email, setEmail] = useState<string>("");
