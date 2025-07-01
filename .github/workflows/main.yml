@@ -21,9 +21,8 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run tests (se tiver testes)
+      - name: Run tests
         run: npm test
-      # Se você não tem testes, pode remover este passo
 
       - name: Build project
         run: npm run build
