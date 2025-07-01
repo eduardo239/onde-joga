@@ -1,7 +1,7 @@
-import SplashPage from "./SplashPage";
-import LoginPage from "./LoginPage";
-import SelectTeamsPage from "./SelectTeamsPage";
-import HomePage from "./HomePage";
+import SplashPage from "./pages/SplashPage";
+import LoginPage from "./pages/LoginPage";
+import SelectTeamsPage from "./pages/SelectTeamsPage";
+import HomePage from "./pages/HomePage";
 
 function App() {
   return (

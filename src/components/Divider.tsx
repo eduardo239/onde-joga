@@ -8,7 +8,7 @@ interface DoubleLineDividerProps {
 export default function Divider({
   text = "",
   lineColor = "gray-300",
-  textColor = "gray-500",
+  textColor = "gray-300",
   className = "",
 }: DoubleLineDividerProps) {
   return (

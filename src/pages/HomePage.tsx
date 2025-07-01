@@ -1,9 +1,9 @@
-import Container from "./Container";
-import Text from "./Text";
+import Container from "../components/Container";
+import Text from "../components/Text";
 
-import IconButton from "./IconButton";
+import IconButton from "../components/IconButton";
 import { FiCalendar, FiSearch } from "react-icons/fi";
-import Game from "./Game";
+import Game from "../components/Game";
 
 export default function HomePage() {
   return (

@@ -4,12 +4,12 @@ import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: "/", // ou seu path base se estiver fazendo deploy em subdiretório
+  base: "/",
   build: {
     outDir: "dist",
     emptyOutDir: true,
   },
-  // @ts-ignore - Ignora o erro de tipo temporariamente
+  // @ts-expect-error - Ignora o erro de tipo temporariamente
   test: {
     globals: true,
     environment: "jsdom",

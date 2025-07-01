@@ -4,6 +4,6 @@ interface TextProps {
 
 export default function Text({ children }: TextProps) {
   return (
-    <p className={`font-sans text-lg text-gray-700 text-center`}>{children}</p>
+    <p className={`font-sans text-md text-gray-700 text-center`}>{children}</p>
   );
 }

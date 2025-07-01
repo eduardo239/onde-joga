@@ -1,5 +1,5 @@
-import Container from "./Container";
-import LOGO_WHITE from "./assets/logo_light.svg";
+import Container from "../components/Container";
+import LOGO_WHITE from "../assets/logo_light.svg";
 
 export default function Splash() {
   return (
