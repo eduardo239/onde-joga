@@ -1,38 +1,16 @@
 import Container from "../components/Container";
-import Text from "../components/Text";
-
-import IconButton from "../components/IconButton";
-import { FiCalendar, FiSearch } from "react-icons/fi";
-import Game from "../components/Game";
+import TopBar from "../components/home/TopBar";
+import GameList from "../components/home/GameList";
+import BottomBar from "../components/home/BottomBar";
 
 export default function HomePage() {
   return (
     <Container padding>
-      <div className="bg-gray-800 w-full">
-        <div className="flex align-center justify-between p-4">
-          <Text>Futebol</Text>
-          <div className="flex align-center gap-2">
-            <button className="text-white bg-green-400 px-5 rounded-full">
-              live
-            </button>
-            <IconButton
-              icon={<FiCalendar className="w-5 h-5" />}
-              size="md"
-              variant="ghost"
-            />
-            <IconButton
-              icon={<FiSearch className="w-5 h-5 " />}
-              size="md"
-              variant="ghost"
-            />
-          </div>
-        </div>
-      </div>
+      <TopBar />
       <div className="py-2"></div>
-      <Game />
-      <Game />
-      <Game />
-      <Game />
+      <GameList />
+      <div className="py-2"></div>
+      <BottomBar />
     </Container>
   );
 }

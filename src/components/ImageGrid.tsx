@@ -15,17 +15,14 @@ const ImageGrid = () => {
         {images.map((image) => (
           <div
             key={image.id}
-            className="relative overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-100 p-4"
+            className="h-24 w-24 flex justify-center items-center relative overflow-hidden rounded-full shadow-sm border-4 border-transparent hover:border-b-green-400 hover:border-t-green-400 transition-shadow duration-100 p-4 hover:cursor-pointer"
           >
             <img
               src={image.src}
               alt={image.alt}
-              className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+              className="h-full w-auto"
               loading="lazy"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300">
-              <span className="text-white font-medium">{image.id}</span>
-            </div>
           </div>
         ))}
       </div>

@@ -1,5 +1,5 @@
-import IconButton from "./IconButton";
 import { FiBell, FiCpu, FiStar } from "react-icons/fi";
+import IconButton from "../IconButton";
 
 export default function Game() {
   return (
