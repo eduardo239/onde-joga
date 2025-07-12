@@ -1,4 +1,4 @@
-import { useAuth } from "./context/AuthContext";
+import { useAuth } from "./context/useAuth";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import TeamList from "./pages/teams/List";

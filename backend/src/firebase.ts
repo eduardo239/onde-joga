@@ -1,7 +1,22 @@
-// src/firebase.ts
+import { vi } from "vitest";
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+
+vi.mock("firebase/app", () => ({
+  initializeApp: vi.fn(() => ({ name: "mock-app" })),
+  default: vi.fn(),
+}));
+
+vi.mock("firebase/auth", () => ({
+  getAuth: vi.fn(() => ({ currentUser: null })),
+  connectAuthEmulator: vi.fn(),
+}));
+
+vi.mock("firebase/firestore", () => ({
+  getFirestore: vi.fn(() => ({ mockFirestore: true })),
+  connectFirestoreEmulator: vi.fn(),
+}));
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,

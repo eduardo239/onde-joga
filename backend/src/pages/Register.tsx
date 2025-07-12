@@ -1,6 +1,7 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { useState } from "react";
 import { auth } from "../firebase";
+import { useState } from "react";
+import { FirebaseError } from "firebase/app";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 import style from "../css/index";
 
@@ -18,8 +19,12 @@ export default function Register() {
     try {
       await createUserWithEmailAndPassword(auth, email, pass);
       console.log("Registrado com sucesso!");
-    } catch (error: any) {
-      setError(error.message);
+    } catch (error) {
+      if (error instanceof FirebaseError) {
+        setError(error.message);
+      } else {
+        setError("Erro desconhecido");
+      }
     }
   };
 
