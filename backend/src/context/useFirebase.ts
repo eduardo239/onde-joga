@@ -6,6 +6,7 @@ export interface FirebaseContextType {
   times: TeamCardWithId[];
   loading: boolean;
   salvarTime: (data: TeamCardProps, user: User | null) => Promise<void>;
+  removerTime: (id: string, user: User | null) => Promise<void>;
 }
 
 export const FirebaseContext = createContext<FirebaseContextType | undefined>(

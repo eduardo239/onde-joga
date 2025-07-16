@@ -4,6 +4,8 @@ import { useCallback } from "react";
 import {
   addDoc,
   collection,
+  deleteDoc,
+  doc,
   getDocs,
   orderBy,
   query,
@@ -31,11 +33,10 @@ export const FirebaseProvider = ({
       id: doc.id,
       ...doc.data(),
     })) as TeamCardWithId[];
-    console.log(dados);
 
-    setTimes(times);
+    setTimes(dados);
     setLoading(false);
-  }, [times]);
+  }, []);
 
   const salvarTime = async (data: TeamCardProps, user: User | null) => {
     if (!user) return;
@@ -44,6 +45,22 @@ export const FirebaseProvider = ({
       await addDoc(collection(db, "times"), data);
     } catch (e) {
       console.error("Erro ao salvar time: ", e);
+    } finally {
+      atualizarListaTimes();
+    }
+  };
+
+  const removerTime = async (id: string, user: User | null) => {
+    if (!user) return;
+
+    try {
+      await deleteDoc(doc(db, "times", id));
+      // setMensagem("Time removido com sucesso!");
+    } catch (e) {
+      console.error("Erro ao salvar time: ", e);
+      // setMensagem("Erro ao salvar.");
+    } finally {
+      atualizarListaTimes();
     }
   };
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -60,6 +77,7 @@ export const FirebaseProvider = ({
         loading,
 
         salvarTime,
+        removerTime,
       }}
     >
       {children}

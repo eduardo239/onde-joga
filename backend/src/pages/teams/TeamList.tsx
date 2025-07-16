@@ -4,7 +4,7 @@ import TeamCard from "./TeamCard";
 
 export default function TeamList() {
   const { times, loading } = useFirebase();
-
+  console.log(times);
   if (loading) return <p>Carregando times...</p>;
 
   return (
