@@ -1,7 +1,6 @@
-import { useCallback } from "react";
-import { db } from "../firebase";
-
 import { useEffect, useState } from "react";
+import { useCallback } from "react";
+
 import {
   addDoc,
   collection,
@@ -9,16 +8,16 @@ import {
   orderBy,
   query,
 } from "firebase/firestore";
-import type { TeamCardProps, TeamCardWithId } from "../pages/teams/TeamCard";
-import { useAuth } from "./useAuth";
+import { db } from "../firebase";
+import type { User } from "firebase/auth";
 import { FirebaseContext } from "./useFirebase";
+import type { TeamCardProps, TeamCardWithId } from "../pages/teams/TeamCard";
 
 export const FirebaseProvider = ({
   children,
 }: {
   children: React.ReactNode;
 }) => {
-  const { user } = useAuth();
   //
   const [times, setTimes] = useState<TeamCardWithId[]>([]);
   const [loading, setLoading] = useState(true);
@@ -38,7 +37,7 @@ export const FirebaseProvider = ({
     setLoading(false);
   }, [times]);
 
-  const salvarTime = async (data: TeamCardProps) => {
+  const salvarTime = async (data: TeamCardProps, user: User | null) => {
     if (!user) return;
 
     try {

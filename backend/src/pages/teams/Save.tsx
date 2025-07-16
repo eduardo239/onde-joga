@@ -2,8 +2,10 @@ import { useState } from "react";
 import { useFirebase } from "../../context/useFirebase";
 
 import style from "../../css/index";
+import { useAuth } from "../../context/useAuth";
 
 export default function SaveTeam() {
+  const { user } = useAuth();
   const { salvarTime } = useFirebase();
 
   const [nome, setNome] = useState("Team 1");
@@ -34,7 +36,7 @@ export default function SaveTeam() {
       <button
         className={style.cssButton}
         onClick={() =>
-          salvarTime({ nome, pais, escudoUrl, criadoEm: new Date() })
+          salvarTime({ nome, pais, escudoUrl, criadoEm: new Date() }, user)
         }
       >
         Salvar

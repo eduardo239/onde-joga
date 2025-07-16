@@ -1,27 +1,13 @@
-import { auth } from "../firebase";
 import { useState } from "react";
-import { FirebaseError } from "firebase/app";
-import { signInWithEmailAndPassword } from "firebase/auth";
 
 import style from "../css/index";
+import { useAuth } from "../context/useAuth";
 
 export default function Login() {
+  const { login, signInWithGoogle, signInWithGithub } = useAuth();
+
   const [email, setEmail] = useState("email@email.com");
   const [password, setPassword] = useState("123123");
-  const [error, setError] = useState("");
-
-  const login = async () => {
-    try {
-      await signInWithEmailAndPassword(auth, email, password);
-      console.log("Login feito com sucesso!");
-    } catch (error) {
-      if (error instanceof FirebaseError) {
-        setError(error.message);
-      } else {
-        setError("Erro desconhecido");
-      }
-    }
-  };
 
   return (
     <div className={style.cssFlex}>
@@ -41,10 +27,21 @@ export default function Login() {
         onChange={(e) => setPassword(e.target.value)}
         value={password}
       />
-      <button className={style.cssButton} onClick={login}>
+      <button
+        className={style.cssButton}
+        onClick={() => login(email, password)}
+      >
         Entrar
       </button>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+
+      <button
+        onClick={signInWithGoogle}
+        className="bg-blue-500 text-white px-4 py-2 rounded"
+      >
+        Entrar com Google
+      </button>
+
+      <button onClick={signInWithGithub}>Entrar com Github</button>
     </div>
   );
 }
