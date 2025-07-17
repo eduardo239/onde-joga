@@ -1,7 +1,4 @@
-import { db } from "../../firebase";
-import { useState } from "react";
 import { useAuth } from "../../context/useAuth";
-import { deleteDoc, doc } from "firebase/firestore";
 import { useFirebase } from "../../context/useFirebase";
 
 export interface TeamCardProps {
